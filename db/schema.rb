@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160501181648) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "votes", force: :cascade do |t|
     t.string   "color"
     t.datetime "created_at", null: false
