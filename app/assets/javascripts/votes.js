@@ -41,9 +41,8 @@ var plotHeight = 300;
 
 // draw bar plot
 function drawBarPlot(data){
-
   // define linear y-axis scale
-  var yScale = d3.scale.linear()
+  var yScale = d3.scaleLinear()
                  .domain([0, d3.max(data)])
                  .range([0, (plotHeight - 50)]);
 
@@ -58,7 +57,7 @@ function drawBarPlot(data){
         return colors[i];
     })
     .attr("x", function(d, i){
-        return (i * 100) + 90; // horizontal location of bars
+        return (i * 100) + 90;         // horizontal location of bars
     })
     .attr("y", function(d){ 
         return plotHeight - yScale(d); // scale bars within plotting area
@@ -67,8 +66,7 @@ function drawBarPlot(data){
 
 // define updateBarPlot() function
 function updateBarPlot(data){
-  
-  var yScale = d3.scale.linear()
+  var yScale = d3.scaleLinear()
                  .domain([0, d3.max(data)])
                  .range([0, (plotHeight - 50)]);
 

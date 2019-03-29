@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',    '4.2.11.1'
 gem 'nokogiri', '1.9.1'
-#gem "d3-rails", '5.7.0'
+gem "d3-rails", '5.7.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -27,7 +27,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   # console
   gem 'rspec-rails', '~> 3.0'
-  gem 'byebug'
+  gem 'byebug',      '3.4.0'
 end
 
 group :development do
@@ -44,6 +44,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg',           '0.18.4'  
-gem 'rails_12factor', '0.0.3'
+  gem 'pg',             '0.18.4'  
+  gem 'rails_12factor', '0.0.3'
 end

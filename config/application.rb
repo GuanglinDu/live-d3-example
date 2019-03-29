@@ -22,5 +22,8 @@ module LiveD3Example
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Assets pipeline for “data folder” for d3.js - https://bit.ly/2FFyHWr
+    config.assets.paths << Rails.root.join("data")
   end
 end
