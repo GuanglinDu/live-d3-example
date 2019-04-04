@@ -1,37 +1,30 @@
 // ajax call to load initial json
-var loadData = function(){
+var loadData = function(cmd){
                 $.ajax({
                   type: 'GET',
                   contentType: 'application/json; charset=utf-8',
                   url: '/votes',
                   dataType: 'json',
                   success: function(data){
-                    drawBarPlot(data);
-                  },
+                    drawOrUpdate(data, cmd);
+                  },             
                   failure: function(result){
                     error();
                   }
                 });
               };
 
-// ajax call to get fresh json
-var updateData = function(){
-                  $.ajax({
-                    type: 'GET',
-                    contentType: 'application/json; charset=utf-8',
-                    url: '/votes',
-                    dataType: 'json',
-                    success: function(data){
-                      updatePage(data);
-                    },
-                    failure: function(result){
-                      error();
-                    }
-                  });
-                };
+var drawOrUpdate = function(data, cmd){
+                     if (cmd == "draw_bar_plot")
+                       drawBarPlot(data);
+                     else if (cmd == "update_page")
+                       updatePage(data);
+                     else
+                       console.log("Unrecognized command: " + cmd);
+                   };
 
 function error() {
-    console.log("Something went wrong!");
+  console.log("Something went wrong!");
 }
 
 // set plot parameters
@@ -94,8 +87,8 @@ function updatePage(data){
 
 // load data on page load
 $(document).ready(function(){ 
-  loadData();
+  loadData('draw_bar_plot');
   setInterval(function(){
-    updateData();
+    loadData('update_page');
   }, 3000); 
 });

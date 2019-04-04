@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-
   def index
     @votes = Vote.totals
 
@@ -22,5 +21,4 @@ class VotesController < ApplicationController
   def vote_params
     params.require(:vote).permit(:color)
   end
-
 end
