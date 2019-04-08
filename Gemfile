@@ -39,7 +39,8 @@ group :development do
   gem 'better_errors'
   gem 'sqlite3',       '1.3.10'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the
+  # background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 

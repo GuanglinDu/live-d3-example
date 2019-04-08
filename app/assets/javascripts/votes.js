@@ -27,17 +27,17 @@ function error() {
   console.log("Something went wrong!");
 }
 
-// set plot parameters
+// Sets plot parameters
 var barWidth = 20;
 var colors = ['red', 'blue'];
 var plotHeight = 300;
 
-// draw bar plot
+// Draww bar plot
 function drawBarPlot(data){
-  // define linear y-axis scale
-  var yScale = d3.scaleLinear()
-                 .domain([0, d3.max(data)])
-                 .range([0, (plotHeight - 50)]);
+// define linear y-axis scale
+var yScale = d3.scaleLinear()
+               .domain([0, d3.max(data)])
+               .range([0, (plotHeight - 50)]);
 
   d3.select("#plot")
     .selectAll("rect")
@@ -46,9 +46,7 @@ function drawBarPlot(data){
     .append("rect")
     .attr("width", barWidth)
     .attr("height", function(d){ return yScale(d); })
-    .attr("fill", function(d, i) {
-        return colors[i];
-    })
+    .attr("fill", function(d, i) { return colors[i]; })
     .attr("x", function(d, i){
         return (i * 100) + 90;         // horizontal location of bars
     })
@@ -57,7 +55,7 @@ function drawBarPlot(data){
     });
 }
 
-// define updateBarPlot() function
+// Defines updateBarPlot() function
 function updateBarPlot(data){
   var yScale = d3.scaleLinear()
                  .domain([0, d3.max(data)])
@@ -73,19 +71,19 @@ function updateBarPlot(data){
     });
 }
 
-// update vote counters 
+// Updates vote counters 
 function updateVoteCounters(data){
   $("#red-count").html(data[0]);
   $("#blue-count").html(data[1]);
 }
 
-// update page (plot and counters)
+// Updates page (plot and counters)
 function updatePage(data){
   updateBarPlot(data);
   updateVoteCounters(data);
 }
 
-// load data on page load
+// Loads data on page load
 $(document).ready(function(){ 
   loadData('draw_bar_plot');
   setInterval(function(){
